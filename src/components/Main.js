@@ -5,7 +5,22 @@ export default class Main extends React.Component {
 
     constructor(){
         super();
-        console.log(`called from the constructor of Main component..`)
+        this.state={
+            phones:[
+                {
+                    name:'IPhone',
+                    desc:'Latest Iphone model from Apple'
+                },
+                {
+                    name:'One Plus 6',
+                    desc:'Flagship phone from OnePlus'
+                },
+                {
+                    name:'Samsung S10',
+                    desc:'Hight performance..'
+                }
+            ]
+        }
         this.selectedProduct = this.selectedProduct.bind(this);
     }
 
@@ -18,24 +33,10 @@ export default class Main extends React.Component {
     }
 
     render(){
-       const phones=[
-            {
-                name:'IPhone',
-                desc:'Latest Iphone model from Apple'
-            },
-            {
-                name:'One Plus 6',
-                desc:'Flagship phone from OnePlus'
-            },
-            {
-                name:'Samsung S10',
-                desc:'Hight performance..'
-            }
-        ]
         return (
             <div className="left">
                 {
-                    phones.map((phone,index) => <Card 
+                    this.state.phones.map((phone,index) => <Card 
                                                 key={index} 
                                                 title={phone.name} 
                                                 body={phone.desc}
