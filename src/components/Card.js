@@ -1,13 +1,17 @@
 import React,{Component} from 'react';
 
 export default class Card extends Component {
+
+    details(){
+        console.log('Came inside the click event handler');
+    }
     render(){
         return  (
             <div className="card" style={{width: 18 +'rem'}}>
                 <div className="card-body">
-                    <h5 className="card-title">{ 4 * 4}</h5>
-                    <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <a href="#" className="btn btn-primary">Go somewhere</a>
+                    <h5 className="card-title">{ this.props.title.toUpperCase()}</h5>
+                    <p className="card-text">{this.props.body}</p>
+                    <a className="btn btn-primary" onClick={this.details()}>Details</a>
                 </div>
                 </div>
         );
