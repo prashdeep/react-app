@@ -1,8 +1,8 @@
 import React from 'react';
 import Card from './Card';
+import axios from 'axios';
 
 export default class Main extends React.Component {
-
     constructor(){
         super();
         this.state={
@@ -11,15 +11,18 @@ export default class Main extends React.Component {
         this.selectedProduct = this.selectedProduct.bind(this);
     }
 
-    selectedProduct({title}){
-        const filteredList = this.state.phones.filter(phone => phone.name === title);
-        this.setState({
+    selectedProduct(){
+       // const filteredList = this.state.phones.filter(phone => phone.name === title);
+        console.log('Inside the selectedProduct function ');
+        /*this.setState({
             phones:filteredList
-        })
+        })*/
     }
 
     componentDidMount(){
         console.log(`Component is mounted on the DOM`)
+        axios.get('https://jsonplaceholder.typicode.com/users')
+        .then(res => console.log(res.data))
         this.setState({
             phones:[
             {
@@ -40,7 +43,8 @@ export default class Main extends React.Component {
 
     render(){
         return (
-            <div className="left">
+            <div className="container">
+                <div className="row">
                 {
                     this.state.phones.map((phone,index) => <Card 
                                                 key={index} 
@@ -48,6 +52,7 @@ export default class Main extends React.Component {
                                                 body={phone.desc}
                                                 selected = {this.selectedProduct}/>)
                 }
+                </div>
             </div>
         );
     }
