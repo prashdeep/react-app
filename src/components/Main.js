@@ -9,9 +9,8 @@ export default class Main extends React.Component {
         this.selectedProduct = this.selectedProduct.bind(this);
     }
 
-    selectedProduct( data){
-        console.log(this)
-       console.log(`selected product is  ${data}`)
+    selectedProduct(data){
+       console.log(data)
     }
 
     componentDidMount(){

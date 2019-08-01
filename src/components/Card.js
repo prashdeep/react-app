@@ -15,7 +15,7 @@ export default class Card extends Component {
                 <div className="card-body">
                     <h5 className="card-title">{ this.props.title.toUpperCase()}</h5>
                     <p className="card-text">{this.props.body}</p>
-                    <a className="btn btn-primary" onClick={this.props.selected}>Details</a>
+                    <a className="btn btn-primary" onClick={() => this.props.selected(this.props.title)}>Details</a>
                 </div>
                 </div>
         );
