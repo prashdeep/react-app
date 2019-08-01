@@ -24,8 +24,17 @@ export default class Main extends React.Component {
         this.selectedProduct = this.selectedProduct.bind(this);
     }
 
-    selectedProduct(data){
-       console.log(data)
+    selectedProduct({title, body}){
+
+        this.setState({
+            phones:[
+                {
+                    name:title, 
+                    desc:body
+                }
+            ]
+        })
+       //this.setState({phones:[data]})
     }
 
     componentDidMount(){
